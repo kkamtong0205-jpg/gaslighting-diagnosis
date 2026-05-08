@@ -243,7 +243,7 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-seri
   <!-- WELCOME -->
   <div class="section active" id="sec-welcome">
     <div class="welcome-card">
-      <div class="w-icon">🌿</div>
+      <img src="couple_nobg.png" alt="" style="width:200px;max-width:80%;display:block;margin:0 auto 10px">
       <h2>당신의 이야기를 들을게요</h2>
       <p class="sub-msg">혼자 감당하지 않아도 됩니다.</p>
       <p>이 진단 도구는 관계 내 가스라이팅 노출 수준과 위험 패턴을 파악하여 건강한 관계를 회복하기 위한 정보를 드립니다.</p>
@@ -261,7 +261,7 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-seri
   <!-- SECTION 1 -->
   <div class="section" id="sec-1">
     <div class="sec-header">
-      <span class="badge">SECTION 1 / 4</span>
+      <span class="badge">SECTION 1 / 1</span>
       <div class="sec-title">관계 경험 돌아보기</div>
       <div class="sec-desc">현재 또는 최근의 친밀한 관계를 조심스럽게 떠올리며 응답해 주세요.<br>정답은 없습니다. 느끼는 그대로 솔직하게 선택해 주세요.</div>
     </div>
@@ -269,45 +269,7 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-seri
     <div id="gl-qs"></div>
     <div class="nav-btns">
       <button class="btn btn-sec" onclick="goTo(0)">← 이전</button>
-      <button class="btn btn-primary" onclick="next1()">다음으로 →</button>
-    </div>
-  </div>
-
-  <!-- SECTION 2 -->
-  <div class="section" id="sec-2">
-    <div class="sec-header">
-      <span class="badge">SECTION 2 / 4</span>
-      <div class="sec-title">관계 속 나의 모습</div>
-      <div class="sec-desc">관계 안에서 자신이 느끼는 감정과 행동 경향에 대해 솔직하게 응답해 주세요.</div>
-    </div>
-    <div id="att-qs"></div>
-    <div class="nav-btns">
-      <button class="btn btn-sec" onclick="goTo(1)">← 이전</button>
-      <button class="btn btn-primary" onclick="next2()">다음으로 →</button>
-    </div>
-  </div>
-
-  <!-- SECTION 3 -->
-  <div class="section" id="sec-3">
-    <div class="sec-header">
-      <span class="badge">SECTION 3 / 4</span>
-      <div class="sec-title">관계의 전반적인 상태</div>
-      <div class="sec-desc">지금 관계가 어떻게 느껴지는지 솔직하게 평가해 주세요.</div>
-    </div>
-    <div id="sat-qs"></div>
-    <div class="sec-header" style="margin-top:22px">
-      <div class="sec-title" style="font-size:1rem">주로 경험하는 갈등 유형</div>
-      <div class="sec-desc">관계에서 가장 자주 느끼는 갈등의 성격을 하나 골라주세요.</div>
-    </div>
-    <div class="choice-grid">
-      <div class="choice-btn" onclick="pickConflict(this,'emotional')"><div class="c-ico">💢</div><div class="c-title">감정적 갈등</div><div class="c-desc">감정 표현·반응을 둘러싼 갈등</div></div>
-      <div class="choice-btn" onclick="pickConflict(this,'communication')"><div class="c-ico">🗣️</div><div class="c-title">의사소통 갈등</div><div class="c-desc">오해·대화 단절로 인한 갈등</div></div>
-      <div class="choice-btn" onclick="pickConflict(this,'control')"><div class="c-ico">⚖️</div><div class="c-title">통제·지배 갈등</div><div class="c-desc">권력 불균형·통제 행동으로 인한 갈등</div></div>
-      <div class="choice-btn" onclick="pickConflict(this,'neglect')"><div class="c-ico">🌫️</div><div class="c-title">무관심·방치 갈등</div><div class="c-desc">정서 방치·고립감으로 인한 갈등</div></div>
-    </div>
-    <div class="nav-btns">
-      <button class="btn btn-sec" onclick="goTo(2)">← 이전</button>
-      <button class="btn btn-primary" onclick="next3()">결과 확인하기 →</button>
+      <button class="btn btn-primary" onclick="next1()">결과 확인하기 →</button>
     </div>
   </div>
 
@@ -397,29 +359,11 @@ const GL_ITEMS = [
   "나는 과거 관계가 좋았던 사람들에게조차 화를 내곤 한다.",
   "나의 인생은 즐거움 없이 하루하루 절망적이다."
 ];
-const ATT_ITEMS = [
-  {t:"나는 상대방이 나를 충분히 사랑하지 않을까 봐 자주 걱정한다."},
-  {t:"나는 상대방이 나를 떠날까 봐 두렵다."},
-  {t:"나는 상대방의 관심과 애정을 계속 확인하고 싶다."},
-  {t:"나는 상대방에게 속마음을 드러내는 것이 불편하다."},
-  {t:"나는 관계에서 감정적 거리를 두고 싶을 때가 많다."},
-  {t:"나는 상대방에게 의존하는 것이 불편하다."}
-];
-const SAT_ITEMS = [
-  {t:"나는 현재 관계에 전반적으로 만족한다.", rev:true},
-  {t:"나는 상대방과의 관계에서 행복을 느낀다.", rev:true},
-  {t:"나는 상대방과의 갈등이 자주 해결되지 않은 채 남아있다.", rev:false},
-  {t:"나는 상대방과의 관계가 나를 지치게 만든다.", rev:false}
-];
 const LIKERT = ["전혀\n아니다","아니다","보통\n이다","그렇다","매우\n그렇다"];
-const CONFLICT_LABELS = {emotional:'감정적 갈등',communication:'의사소통 갈등',control:'통제·지배 갈등',neglect:'무관심·방치 갈등'};
 const SUB_COLORS = ['#C4785A','#E8A87C','#A07BC4','#E8984A'];
 
 // ── STATE ─────────────────────────────────────────────
 let glA = new Array(20).fill(null);
-let attA = new Array(6).fill(null);
-let satA = new Array(4).fill(null);
-let conflict = null;
 let lastResult = null;
 let resultSaved = false;
 
@@ -484,10 +428,6 @@ function buildQ(text, num, grp, ansArr, idx) {
 function initAll() {
   const glC = document.getElementById('gl-qs');
   GL_ITEMS.forEach((t, i) => glC.appendChild(buildQ(t, i+1, 'gl', glA, i)));
-  const attC = document.getElementById('att-qs');
-  ATT_ITEMS.forEach((item, i) => attC.appendChild(buildQ(item.t, i+1, 'att', attA, i)));
-  const satC = document.getElementById('sat-qs');
-  SAT_ITEMS.forEach((item, i) => satC.appendChild(buildQ(item.t, i+1, 'sat', satA, i)));
 }
 initAll();
 
@@ -495,7 +435,8 @@ initAll();
 function goTo(n) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.getElementById(n === 0 ? 'sec-welcome' : `sec-${n}`).classList.add('active');
-  document.getElementById('progBar').style.width = [0,25,50,75,100][n] + '%';
+  const pcts = {0:0, 1:50, 4:100};
+  document.getElementById('progBar').style.width = (pcts[n]||0) + '%';
   window.scrollTo({top:0,behavior:'smooth'});
 }
 function toast(msg, dur=2800) {
@@ -507,23 +448,8 @@ function toast(msg, dur=2800) {
 function next1() {
   const miss = glA.filter(x => x === null).length;
   if (miss) { toast(`${miss}개 문항이 아직 남아있어요.`); document.getElementById(`qc-gl-${glA.findIndex(x=>x===null)}`)?.scrollIntoView({behavior:'smooth',block:'center'}); return; }
-  goTo(2);
-}
-function next2() {
-  const miss = attA.filter(x => x === null).length;
-  if (miss) { toast(`${miss}개 문항이 아직 남아있어요.`); return; }
-  goTo(3);
-}
-function next3() {
-  if (satA.filter(x=>x===null).length) { toast('관계 만족도 문항을 모두 응답해 주세요.'); return; }
-  if (!conflict) { toast('갈등 유형을 하나 골라주세요.'); return; }
   calcResults();
   goTo(4);
-}
-function pickConflict(btn, type) {
-  document.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected'));
-  btn.classList.add('selected');
-  conflict = type;
 }
 
 // ── SCORING ───────────────────────────────────────────
@@ -542,31 +468,23 @@ function calcResults() {
   else if (riskScore < 67) { riskLevel='medium'; riskLabel='중간'; riskDesc='관계 내 일부 가스라이팅 요소가 감지됩니다. 자신의 감정에 귀 기울이며 조금 더 살펴볼 필요가 있어요.'; }
   else { riskLevel='high'; riskLabel='높음'; riskDesc='가스라이팅 경험 수준이 상당합니다. 당신의 감각은 옳습니다. 혼자 감당하지 말고 전문가의 도움을 받으시길 권장합니다.'; }
 
-  const anxiety   = avg(attA,[0,1,2]);
-  const avoidance = avg(attA,[3,4,5]);
-  const highAnx = anxiety >= 3.5, highAvo = avoidance >= 3.5;
   const subs = {selfDoubt, submission, emotExh, cogPar};
   const dominant = Object.keys(subs).reduce((a,b) => subs[a]>subs[b]?a:b);
 
   let pattern, patDesc;
-  if (dominant==='submission'||conflict==='control'||(highAvo&&!highAnx)) {
+  if (dominant==='submission') {
     pattern='통제-회피 패턴'; patDesc='상대방의 통제적 행동에 지속적으로 순응하고 회피하는 패턴이 나타납니다. 관계 내 권력 불균형이 자신의 자율성을 침해하고 있을 수 있으며, 자신의 필요와 경계가 반복적으로 무시되는 경험을 하고 있을 수 있어요.';
-  } else if (dominant==='cogPar'||conflict==='neglect'||(highAnx&&highAvo)) {
+  } else if (dominant==='cogPar') {
     pattern='추구-회피 패턴'; patDesc='관계에서 연결과 안정을 간절히 원하지만, 동시에 감정적으로 회피되는 경험이 반복되고 있어요. 인지적 마비와 의사결정의 어려움이 두드러지며, 관계의 불확실성 속에서 심리적 소진이 누적되어 있을 수 있습니다.';
   } else {
     pattern='감정 왜곡 패턴'; patDesc='자신의 감정이 지속적으로 왜곡되거나 무효화되는 경험을 하고 있습니다. 자기 의심과 정서적 혼란이 주요 특징이며, 자신의 감정 반응이 "과민하다"거나 "잘못된 것"으로 느껴지는 경향이 있어요. 하지만 당신의 감정은 유효합니다.';
   }
-
-  const satRaw = satA.reduce((s,v,i)=>s+(SAT_ITEMS[i].rev?6-v:v),0);
-  const satPct = Math.round((satRaw-4)/16*100);
 
   const warns = [];
   if (selfDoubt>=3.5) warns.push("관계로 인해 자신이 누구인지 흔들리고 있어요. 당신의 정체성은 소중합니다.");
   if (submission>=3.5) warns.push("상대방을 위해 자신을 지속적으로 낮추는 패턴이 나타나고 있습니다.");
   if (emotExh>=3.5)   warns.push("관계로 인한 정서적 소진이 상당한 수준이에요. 자신을 돌볼 시간이 필요합니다.");
   if (cogPar>=3.5)    warns.push("작은 결정도 어렵게 느껴지는 인지적 피로 상태가 감지됩니다.");
-  if (highAnx)        warns.push("관계를 잃을까 봐 느끼는 불안이 높아, 자신을 희생하는 경향이 있을 수 있어요.");
-  if (highAvo)        warns.push("감정을 나누는 것이 불편하게 느껴져 관계 안에서 외로움을 느낄 수 있습니다.");
   if (glA[17]>=4)     warns.push("주변 사람들이 당신을 걱정하고 있다면, 그 마음을 조심스럽게 받아보세요.");
   if (!warns.length)  warns.push("지금 당장 심각한 위험 신호는 감지되지 않았어요. 앞으로도 자신의 감정을 소중히 여겨주세요.");
 
@@ -576,15 +494,15 @@ function calcResults() {
     ? '관계 안에서 조금 지쳐있을 수 있어요. 자신의 감정과 경계를 천천히 살펴보시고, 필요하다면 주변의 도움을 받아보세요.'
     : '지금 관계는 비교적 건강한 상태로 보여요. 앞으로도 자신의 감정과 경계를 소중히 여기며 지내시길 바랍니다.';
 
-  lastResult = {riskScore, riskLevel, riskLabel, pattern, subs:{selfDoubt,submission,emotExh,cogPar}, anxiety, avoidance, satPct, conflict};
+  lastResult = {riskScore, riskLevel, riskLabel, pattern, subs:{selfDoubt,submission,emotExh,cogPar}};
   resultSaved = false;
 
-  submitData({gl:[...glA],att:[...attA],sat:[...satA],conflict,riskScore,riskLabel,
-    selfDoubt:+selfDoubt.toFixed(2),submission:+submission.toFixed(2),emotExh:+emotExh.toFixed(2),
-    cogPar:+cogPar.toFixed(2),anxiety:+anxiety.toFixed(2),avoidance:+avoidance.toFixed(2),satPct,pattern});
+  submitData({gl:[...glA],riskScore,riskLabel,
+    selfDoubt:+selfDoubt.toFixed(2),submission:+submission.toFixed(2),
+    emotExh:+emotExh.toFixed(2),cogPar:+cogPar.toFixed(2),pattern});
 
   renderResults({riskScore,riskLevel,riskLabel,riskDesc,pattern,patDesc,
-    subs:{selfDoubt,submission,emotExh,cogPar},anxiety,avoidance,satPct,warns,recText});
+    subs:{selfDoubt,submission,emotExh,cogPar},warns,recText});
 }
 
 // ── RENDER ────────────────────────────────────────────
@@ -592,8 +510,7 @@ function bar(pct,color){return`<div class="track"><div class="fill" style="width
 function subRow(name,val,color){const pct=Math.round((val-1)/4*100);return`<div class="sub-item"><div class="sub-row"><span class="sub-name">${name}</span><span class="sub-score">${val.toFixed(1)}/5.0</span></div>${bar(pct,color)}</div>`;}
 
 function renderResults(d) {
-  const {riskScore,riskLevel,riskLabel,riskDesc,pattern,patDesc,subs,anxiety,avoidance,satPct,warns,recText}=d;
-  const anPct=Math.round((anxiety-1)/4*100), avPct=Math.round((avoidance-1)/4*100);
+  const {riskScore,riskLevel,riskLabel,riskDesc,pattern,patDesc,subs,warns,recText}=d;
   const isLoggedIn = !!AUTH.email;
 
   document.getElementById('results').innerHTML = `
@@ -626,12 +543,6 @@ function renderResults(d) {
         <div class="p-badge">${pattern}</div>
         <div class="p-desc">${patDesc}</div>
       </div>
-      <div class="att-grid">
-        <div class="att-bar"><div class="att-lbl">불안 애착</div><div class="att-val" style="color:#C4785A">${anxiety.toFixed(1)}</div>${bar(anPct,'#E8A87C')}</div>
-        <div class="att-bar"><div class="att-lbl">회피 애착</div><div class="att-val" style="color:#7B9EC4">${avoidance.toFixed(1)}</div>${bar(avPct,'#A3BED9')}</div>
-        <div class="att-bar"><div class="att-lbl">관계 만족도</div><div class="att-val" style="color:#56A87C">${satPct}%</div>${bar(satPct,'#82C9A0')}</div>
-      </div>
-      <div style="margin-top:11px;padding:8px 12px;background:#FFF3EC;border-radius:8px;font-size:.78rem;color:var(--muted)">주요 갈등 유형 · <strong style="color:var(--primary)">${CONFLICT_LABELS[conflict]}</strong></div>
     </div>
 
     <div class="r-card">
@@ -800,7 +711,7 @@ function showHistory() {
           </div>
           <div class="hist-info">
             <div class="hi-level" style="color:${c}">${h.riskLabel} · ${h.pattern}</div>
-            <div class="hi-pattern">${CONFLICT_LABELS[h.conflict]||''}</div>
+            <div class="hi-pattern">${h.pattern||''}</div>
             <div class="hi-track"><div class="hi-fill" style="width:${h.riskScore}%;background:${c}"></div></div>
           </div>
         </div>
@@ -826,8 +737,7 @@ function submitData(payload) {
 
 // ── RESTART ───────────────────────────────────────────
 function restart() {
-  glA=new Array(20).fill(null); attA=new Array(6).fill(null);
-  satA=new Array(4).fill(null); conflict=null; lastResult=null; resultSaved=false;
+  glA=new Array(20).fill(null); lastResult=null; resultSaved=false;
   document.querySelectorAll('input[type=radio]').forEach(r=>r.checked=false);
   document.querySelectorAll('.q-card').forEach(c=>c.classList.remove('answered'));
   document.querySelectorAll('.choice-btn').forEach(b=>b.classList.remove('selected'));
