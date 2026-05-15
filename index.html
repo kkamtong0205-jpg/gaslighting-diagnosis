@@ -67,7 +67,7 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-seri
 
 /* ── Conflict ── */
 .choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
-.choice-btn{background:var(--card);border:2px solid var(--border);border-radius:12px;padding:14px 12px;cursor:pointer;transition:all .2s;text-align:left}
+.choice-btn{background:var(--card);border:2px solid var(--border);border-radius:12px;padding:14px 12px;cursor:pointer;transition:all .2s;text-align:left;-webkit-tap-highlight-color:transparent;touch-action:manipulation;user-select:none}
 .choice-btn:hover{border-color:#E8A87C;background:#FFF8F3}
 .choice-btn.selected{border-color:#C4785A;background:#FFF0EA}
 .choice-btn .c-ico{font-size:1.25rem;margin-bottom:4px}
@@ -76,7 +76,7 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-seri
 
 /* ── Nav ── */
 .nav-btns{display:flex;gap:10px;margin-top:22px}
-.btn{padding:12px 22px;border-radius:12px;border:none;font-size:.88rem;font-weight:700;cursor:pointer;transition:all .2s}
+.btn{padding:12px 22px;border-radius:12px;border:none;font-size:.88rem;font-weight:700;cursor:pointer;transition:all .2s;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .btn-primary{background:linear-gradient(135deg,#C4785A,#E8A87C);color:#fff;flex:1;box-shadow:0 4px 14px rgba(196,120,90,.25)}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(196,120,90,.38)}
 .btn-sec{background:#F5EBE6;color:var(--muted);border:1px solid var(--border)}
@@ -211,11 +211,74 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-seri
 .hist-info .hi-track{margin-top:5px;height:5px;background:#F0DDD5;border-radius:3px;overflow:hidden;width:120px}
 .hist-info .hi-fill{height:100%;border-radius:3px}
 
+/* ── Reminder Banner ── */
+@keyframes slideUpBanner{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.reminder-banner{display:none;position:fixed;bottom:0;left:0;right:0;z-index:2000;background:#fff;border-top:2px solid var(--border);box-shadow:0 -6px 24px rgba(0,0,0,.13);padding:14px 18px;animation:slideUpBanner .35s ease}
+.rb-inner{display:flex;align-items:center;gap:12px;max-width:720px;margin:0 auto;flex-wrap:wrap}
+.rb-ico{font-size:1.7rem;flex-shrink:0}
+.rb-text{flex:1;min-width:0}
+.rb-title{font-size:.88rem;font-weight:800;margin-bottom:2px}
+.rb-sub{font-size:.75rem;color:var(--muted)}
+.rb-btns{display:flex;gap:7px;flex-shrink:0}
+.rb-start{padding:9px 17px;background:linear-gradient(135deg,#C4785A,#E8A87C);color:#fff;border:none;border-radius:10px;font-size:.82rem;font-weight:700;cursor:pointer;touch-action:manipulation}
+.rb-dismiss{padding:9px 13px;background:#F5E6DE;color:var(--muted);border:none;border-radius:10px;font-size:.82rem;font-weight:700;cursor:pointer;touch-action:manipulation}
+
+/* ── ICS Button ── */
+.ics-wrap{margin-top:12px;text-align:center}
+.ics-btn{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;background:#FFF3EC;border:1.5px solid #F0DDD5;border-radius:11px;font-size:.82rem;font-weight:700;color:#A05D3C;cursor:pointer;transition:all .2s;touch-action:manipulation}
+.ics-btn:hover{background:#F5E6DE;border-color:#E8A87C}
+.ics-hint{font-size:.71rem;color:var(--muted);margin-top:5px}
+
 /* ── Restart / Toast ── */
 .restart-btn{display:block;text-align:center;padding:12px;background:#FFF3EC;border:2px solid #F0DDD5;border-radius:12px;color:var(--muted);cursor:pointer;margin-top:16px;font-size:.86rem;font-weight:700;width:100%;transition:all .2s}
 .restart-btn:hover{background:#F5E6DE;color:#7A5040}
 .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);background:#5D3E32;color:#fff;padding:11px 20px;border-radius:10px;font-size:.81rem;z-index:4000;transition:transform .3s ease;white-space:nowrap}
 .toast.show{transform:translateX(-50%) translateY(0)}
+
+/* ── Detail Cards ── */
+.mech-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:11px}
+.mech-item{background:#FFF8F3;border-radius:11px;padding:12px 11px;border:1px solid #F0DDD5}
+.mech-item.active{background:linear-gradient(135deg,#FFF0EA,#FFF8F0);border-color:#E8A87C;box-shadow:0 2px 10px rgba(196,120,90,.1)}
+.mech-item .m-ico{font-size:1.2rem;margin-bottom:5px}
+.mech-item .m-title{font-size:.8rem;font-weight:800;margin-bottom:3px}
+.mech-item.active .m-title{color:var(--primary)}
+.mech-item .m-desc{font-size:.72rem;color:var(--muted);line-height:1.6}
+.phrase-list{display:flex;flex-direction:column;gap:8px;margin-top:11px}
+.phrase-item{background:#FFF8F3;border-radius:10px;padding:11px 13px;border-left:3px solid #E8A87C}
+.phrase-q{font-size:.84rem;font-weight:700;color:#C4785A;margin-bottom:4px}
+.phrase-explain{font-size:.75rem;color:var(--muted);line-height:1.6}
+.neuro-box{background:linear-gradient(135deg,#F5F0FF,#FFF8F3);border-radius:12px;padding:15px;margin-top:10px;border:1px solid #DDD5F0}
+.neuro-box .nb-title{font-size:.84rem;font-weight:800;color:#6B55A0;margin-bottom:7px}
+.neuro-box .nb-desc{font-size:.81rem;line-height:1.78;color:var(--text)}
+.road-steps{display:flex;flex-direction:column;gap:9px;margin-top:11px}
+.road-step{display:flex;align-items:flex-start;gap:11px;padding:12px 13px;background:#FFFCF9;border-radius:11px;border:1px solid var(--border)}
+.road-num{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#C4785A,#E8A87C);color:#fff;font-size:.75rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.road-title{font-size:.84rem;font-weight:800;margin-bottom:2px}
+.road-desc{font-size:.76rem;color:var(--muted);line-height:1.6}
+
+
+/* ── Motion ── */
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes pulseRing{0%{transform:scale(1);opacity:.65}100%{transform:scale(1.6);opacity:0}}
+@keyframes drift{0%{transform:translateY(0) translateX(0) rotate(0deg);opacity:.7}100%{transform:translateY(-58px) translateX(16px) rotate(360deg);opacity:0}}
+
+.welcome-card img{animation:float 4s ease-in-out infinite}
+
+.header-spark{position:absolute;pointer-events:none;animation:drift linear infinite;opacity:0}
+
+.risk-circle{position:relative}
+.risk-circle::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(255,255,255,.4);animation:pulseRing 2.2s ease-out infinite}
+.risk-low .risk-circle::after{border-color:rgba(86,195,140,.5)}
+.risk-medium .risk-circle::after{border-color:rgba(232,152,74,.5)}
+.risk-high .risk-circle::after{border-color:rgba(217,96,74,.5)}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.r-card{transition:transform .22s ease,box-shadow .22s ease}
+.r-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(180,110,80,.17)}
+.feat-card:not(.unlocked){transition:transform .22s ease,box-shadow .22s ease}
+.feat-card:not(.unlocked):hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(180,110,80,.14)}
+.fill{transition:width 1.3s cubic-bezier(.16,1,.3,1)!important}
 
 @media(max-width:480px){
   .info-grid{grid-template-columns:1fr 1fr}
@@ -243,13 +306,13 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-seri
   <!-- WELCOME -->
   <div class="section active" id="sec-welcome">
     <div class="welcome-card">
-      <img src="couple_nobg.png" alt="" style="width:200px;max-width:80%;display:block;margin:0 auto 10px">
+      <img src="../output/couple_nobg.png" alt="" style="width:200px;max-width:80%;display:block;margin:0 auto 10px">
       <h2>당신의 이야기를 들을게요</h2>
       <p class="sub-msg">혼자 감당하지 않아도 됩니다.</p>
       <p>이 진단 도구는 관계 내 가스라이팅 노출 수준과 위험 패턴을 파악하여 건강한 관계를 회복하기 위한 정보를 드립니다.</p>
       <p><strong>판단</strong>이 아닌 <strong>이해와 안내</strong>를 목표로 합니다.</p>
       <div class="info-grid">
-        <div class="info-item"><div class="ico">📋</div><div class="val">총 30문항</div><div class="lbl">가스라이팅 · 애착 · 관계</div></div>
+        <div class="info-item"><div class="ico">📋</div><div class="val">총 20문항</div><div class="lbl">가스라이팅 · 애착 · 관계</div></div>
         <div class="info-item"><div class="ico">🕐</div><div class="val">약 5분</div><div class="lbl">소요 시간</div></div>
         <div class="info-item"><div class="ico">🔒</div><div class="val">익명</div><div class="lbl">데이터 저장 없음</div></div>
       </div>
@@ -269,7 +332,43 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-seri
     <div id="gl-qs"></div>
     <div class="nav-btns">
       <button class="btn btn-sec" onclick="goTo(0)">← 이전</button>
-      <button class="btn btn-primary" onclick="next1()">결과 확인하기 →</button>
+      <button class="btn btn-primary" onclick="next1()">다음 단계 →</button>
+    </div>
+  </div>
+
+  <!-- SECTION 2: CONFLICT TYPE -->
+  <div class="section" id="sec-2">
+    <div class="sec-header">
+      <span class="badge">SECTION 2 / 2</span>
+      <div class="sec-title">주요 갈등 유형 선택</div>
+      <div class="sec-desc">관계에서 가장 자주 경험하는 갈등 유형을 하나 선택해 주세요.</div>
+    </div>
+    <div class="warm-note">💛 정답은 없습니다. 가장 공감되는 것을 선택해 주세요.</div>
+    <div class="choice-grid">
+      <div class="choice-btn" onclick="pickConflict(this,'emotional')">
+        <div class="c-ico">💢</div>
+        <div class="c-title">감정적 갈등</div>
+        <div class="c-desc">감정 표현·반응을 둘러싼 갈등</div>
+      </div>
+      <div class="choice-btn" onclick="pickConflict(this,'communication')">
+        <div class="c-ico">🗣️</div>
+        <div class="c-title">의사소통 갈등</div>
+        <div class="c-desc">오해·대화 단절로 인한 갈등</div>
+      </div>
+      <div class="choice-btn" onclick="pickConflict(this,'control')">
+        <div class="c-ico">⚖️</div>
+        <div class="c-title">통제·지배 갈등</div>
+        <div class="c-desc">권력 불균형·통제 행동으로 인한 갈등</div>
+      </div>
+      <div class="choice-btn" onclick="pickConflict(this,'neglect')">
+        <div class="c-ico">🌫️</div>
+        <div class="c-title">무관심·방치 갈등</div>
+        <div class="c-desc">정서 방치·고립감으로 인한 갈등</div>
+      </div>
+    </div>
+    <div class="nav-btns">
+      <button class="btn btn-sec" onclick="goTo(1)">← 이전</button>
+      <button class="btn btn-primary" onclick="next2()">결과 확인하기 →</button>
     </div>
   </div>
 
@@ -331,6 +430,20 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-seri
   <input type="hidden" name="data" id="gs_data">
 </form>
 
+<div class="reminder-banner" id="reminder-banner">
+  <div class="rb-inner">
+    <div class="rb-ico">🌿</div>
+    <div class="rb-text">
+      <div class="rb-title">마지막 진단으로부터 <span id="rb-days">28</span>일이 지났어요</div>
+      <div class="rb-sub">관계 변화를 다시 확인해볼 시간이에요.</div>
+    </div>
+    <div class="rb-btns">
+      <button class="rb-start" onclick="startReminder()">지금 시작하기</button>
+      <button class="rb-dismiss" onclick="dismissReminder()">나중에</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
@@ -364,6 +477,7 @@ const SUB_COLORS = ['#C4785A','#E8A87C','#A07BC4','#E8984A'];
 
 // ── STATE ─────────────────────────────────────────────
 let glA = new Array(20).fill(null);
+let conflict = null;
 let lastResult = null;
 let resultSaved = false;
 
@@ -435,9 +549,14 @@ initAll();
 function goTo(n) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.getElementById(n === 0 ? 'sec-welcome' : `sec-${n}`).classList.add('active');
-  const pcts = {0:0, 1:50, 4:100};
+  const pcts = {0:0, 1:33, 2:66, 4:100};
   document.getElementById('progBar').style.width = (pcts[n]||0) + '%';
   window.scrollTo({top:0,behavior:'smooth'});
+}
+function pickConflict(btn, type) {
+  document.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  conflict = type;
 }
 function toast(msg, dur=2800) {
   const el = document.getElementById('toast');
@@ -448,6 +567,10 @@ function toast(msg, dur=2800) {
 function next1() {
   const miss = glA.filter(x => x === null).length;
   if (miss) { toast(`${miss}개 문항이 아직 남아있어요.`); document.getElementById(`qc-gl-${glA.findIndex(x=>x===null)}`)?.scrollIntoView({behavior:'smooth',block:'center'}); return; }
+  goTo(2);
+}
+function next2() {
+  if (!conflict) { toast('갈등 유형을 선택해 주세요.'); return; }
   calcResults();
   goTo(4);
 }
@@ -456,28 +579,69 @@ function next1() {
 function avg(arr, idxs) { return idxs.reduce((s,i) => s+arr[i], 0) / idxs.length; }
 
 function calcResults() {
+  localStorage.setItem('gl_lastTestDate', new Date().toISOString());
   const selfDoubt  = avg(glA,[0,1,4,14,16]);
   const submission = avg(glA,[3,6,7,8,10,15]);
   const emotExh    = avg(glA,[5,9,17,18,19]);
   const cogPar     = avg(glA,[2,11,12,13]);
-  const total = glA.reduce((s,v)=>s+v,0);
-  const riskScore = Math.round((total-20)/80*100);
+
+  // 핵심 가스라이팅 지표 가중치 (현실 부정·자아 혼란 직결 문항 1.4배)
+  // 근거: 의심/혼란(Q1), 과민(Q2), 잘못된 것(Q10), 달라짐(Q15), 무력감(Q17)
+  const CORE = [0,1,9,14,16];
+  const wSum = glA.reduce((s,v,i) => s + v*(CORE.includes(i)?1.4:1.0), 0);
+  const wMin = CORE.length*1.4 + (20-CORE.length)*1;
+  const wMax = CORE.length*7.0 + (20-CORE.length)*5;
+  const riskScore = Math.round((wSum-wMin)/(wMax-wMin)*100);
 
   let riskLevel, riskLabel, riskDesc;
-  if (riskScore < 34) { riskLevel='low'; riskLabel='낮음'; riskDesc='현재 관계에서 가스라이팅 경험이 비교적 낮은 수준입니다. 지금의 건강한 경계를 잘 유지하고 계신 것 같아요.'; }
-  else if (riskScore < 67) { riskLevel='medium'; riskLabel='중간'; riskDesc='관계 내 일부 가스라이팅 요소가 감지됩니다. 자신의 감정에 귀 기울이며 조금 더 살펴볼 필요가 있어요.'; }
-  else { riskLevel='high'; riskLabel='높음'; riskDesc='가스라이팅 경험 수준이 상당합니다. 당신의 감각은 옳습니다. 혼자 감당하지 말고 전문가의 도움을 받으시길 권장합니다.'; }
+  if (riskScore < 30) {
+    riskLevel='low'; riskLabel='낮음';
+    riskDesc='현재 관계에서 가스라이팅 경험이 비교적 낮은 수준입니다. 지금의 건강한 경계를 잘 유지하고 계신 것 같아요.';
+  } else if (riskScore < 62) {
+    riskLevel='medium'; riskLabel='중간';
+    riskDesc='관계 내 일부 가스라이팅 요소가 감지됩니다. 자신의 감정에 귀 기울이며 조금 더 살펴볼 필요가 있어요.';
+  } else {
+    riskLevel='high'; riskLabel='높음';
+    riskDesc='가스라이팅 경험 수준이 상당합니다. 당신의 감각은 옳습니다. 혼자 감당하지 말고 전문가의 도움을 받으시길 권장합니다.';
+  }
 
-  const subs = {selfDoubt, submission, emotExh, cogPar};
-  const dominant = Object.keys(subs).reduce((a,b) => subs[a]>subs[b]?a:b);
+  // 갈등 유형 기반 서브스코어 보정 (조작 기제 이론 연동)
+  // 근거: 각 갈등 유형은 특정 조작 기제와 연결됨 (PDF §5)
+  const cw = ({
+    control:       {submission:1.30, selfDoubt:1.10, emotExh:1.00, cogPar:1.00},
+    neglect:       {emotExh:1.35,    cogPar:1.10,    selfDoubt:1.00, submission:1.00},
+    communication: {cogPar:1.30,     selfDoubt:1.15, emotExh:1.00, submission:1.00},
+    emotional:     {selfDoubt:1.30,  emotExh:1.15,   cogPar:1.00, submission:1.00},
+  })[conflict] || {selfDoubt:1,submission:1,emotExh:1,cogPar:1};
+
+  const adjSubs = {
+    selfDoubt:  selfDoubt  * cw.selfDoubt,
+    submission: submission * cw.submission,
+    emotExh:    emotExh    * cw.emotExh,
+    cogPar:     cogPar     * cw.cogPar,
+  };
+  const dominant = Object.keys(adjSubs).reduce((a,b) => adjSubs[a]>adjSubs[b]?a:b);
+
+  // 4패턴 분류 (에이브람슨·스위트 이론 기반)
+  const conflictLabel = {
+    emotional:'감정적 갈등', communication:'의사소통 갈등',
+    control:'통제·지배 갈등', neglect:'무관심·방치 갈등'
+  }[conflict] || null;
 
   let pattern, patDesc;
-  if (dominant==='submission') {
-    pattern='통제-회피 패턴'; patDesc='상대방의 통제적 행동에 지속적으로 순응하고 회피하는 패턴이 나타납니다. 관계 내 권력 불균형이 자신의 자율성을 침해하고 있을 수 있으며, 자신의 필요와 경계가 반복적으로 무시되는 경험을 하고 있을 수 있어요.';
-  } else if (dominant==='cogPar') {
-    pattern='추구-회피 패턴'; patDesc='관계에서 연결과 안정을 간절히 원하지만, 동시에 감정적으로 회피되는 경험이 반복되고 있어요. 인지적 마비와 의사결정의 어려움이 두드러지며, 관계의 불확실성 속에서 심리적 소진이 누적되어 있을 수 있습니다.';
+  const cl = conflictLabel ? ('<strong>'+conflictLabel+'</strong>') : '';
+  if (dominant==='submission' || conflict==='control') {
+    pattern='통제-회피 패턴';
+    patDesc=(cl?cl+'을(를) 중심으로 한 응답 패턴에서, ':'')+'상대방의 통제적 행동에 지속적으로 순응하고 회피하는 경향이 두드러집니다. 에이브람슨이 설명한 \'이견 가능성의 말살\'이 작동하고 있을 수 있으며, 권력 불균형으로 인해 자율성이 반복적으로 침해받고 있을 수 있습니다. 상대의 행동에 이유를 만들어 정당화하고 있다면 이 패턴의 신호일 수 있어요.';
+  } else if (dominant==='cogPar' || conflict==='communication') {
+    pattern='인지 마비-혼란 패턴';
+    patDesc=(cl?cl+' 상황에서 반복된 현실 부정으로 인해, ':'')+'자기 판단 능력 자체가 흔들리는 상태가 감지됩니다. "그건 네 상상이야", "그런 일 없었어"와 같은 기억 재정의가 지속될 경우 작은 결정도 어렵고 대화 전에 머릿속으로 사전 점검하는 습관이 생깁니다. 이는 의지력이 아닌, 뇌의 인지 과부하 반응입니다.';
+  } else if (dominant==='emotExh' || conflict==='neglect') {
+    pattern='정서 소진-고립 패턴';
+    patDesc=(cl?cl+'이(가) 반복되는 가운데, ':'')+'정서적 방치와 고립으로 인한 소진이 누적된 상태입니다. 페이지 스위트의 연구에 따르면, 피해자의 공감 능력이 역이용되어 가해자의 고통에 집중하게 되는 구조가 형성됩니다. 주변과의 연결감이 줄어들고 혼자 감당하고 있다는 느낌이 강하다면 이 패턴에 해당할 수 있어요.';
   } else {
-    pattern='감정 왜곡 패턴'; patDesc='자신의 감정이 지속적으로 왜곡되거나 무효화되는 경험을 하고 있습니다. 자기 의심과 정서적 혼란이 주요 특징이며, 자신의 감정 반응이 "과민하다"거나 "잘못된 것"으로 느껴지는 경향이 있어요. 하지만 당신의 감정은 유효합니다.';
+    pattern='자아 붕괴-감정 왜곡 패턴';
+    patDesc=(cl?cl+' 상황에서 반복적인 감정 무효화로 인해, ':'')+'자아 혼란이 심화된 상태입니다. "너 너무 예민해"와 같은 어법으로 감정 반응 자체를 문제화하는 패턴에 지속 노출되면 자신의 감각을 신뢰하지 못하게 됩니다. 이를 에이브람슨은 \'존재론적 침묵\'이라고 불렀습니다. 당신의 감정은 유효합니다.';
   }
 
   const warns = [];
@@ -501,7 +665,7 @@ function calcResults() {
     selfDoubt:+selfDoubt.toFixed(2),submission:+submission.toFixed(2),
     emotExh:+emotExh.toFixed(2),cogPar:+cogPar.toFixed(2),pattern});
 
-  renderResults({riskScore,riskLevel,riskLabel,riskDesc,pattern,patDesc,
+  renderResults({riskScore,riskLevel,riskLabel,riskDesc,pattern,patDesc,conflictLabel,
     subs:{selfDoubt,submission,emotExh,cogPar},warns,recText});
 }
 
@@ -510,8 +674,57 @@ function bar(pct,color){return`<div class="track"><div class="fill" style="width
 function subRow(name,val,color){const pct=Math.round((val-1)/4*100);return`<div class="sub-item"><div class="sub-row"><span class="sub-name">${name}</span><span class="sub-score">${val.toFixed(1)}/5.0</span></div>${bar(pct,color)}</div>`;}
 
 function renderResults(d) {
-  const {riskScore,riskLevel,riskLabel,riskDesc,pattern,patDesc,subs,warns,recText}=d;
+  const {riskScore,riskLevel,riskLabel,riskDesc,pattern,patDesc,conflictLabel,subs,warns,recText}=d;
   const isLoggedIn = !!AUTH.email;
+
+  // 조작 기제 분석
+  const mechs = [
+    {ico:'💝',title:'사랑·신뢰 도구화',desc:'피해자의 신뢰와 애정을 이용해 가해자의 발언에 과도한 권위를 부여하게 함',active:subs.selfDoubt>=3.0},
+    {ico:'🪞',title:'공감 능력 역이용',desc:'"네가 나를 의심해서 내가 너무 괴로워" — 피해자의 공감을 가해자 고통에 집중하게 전환함',active:subs.submission>=3.0},
+    {ico:'🚪',title:'사회적 고립',desc:'주변인에게 피해자가 불안정하다는 소문을 퍼뜨려 사회적 지지 기반을 무너뜨림',active:subs.emotExh>=3.0},
+    {ico:'🪓',title:'내면화된 자기 불신',desc:'피해자 내부의 열등감·불안감을 자극하여 스스로의 판단을 의심하게 만듦',active:subs.cogPar>=3.0},
+  ];
+
+  // 전형적 어법 (점수 높은 요인 순 정렬 후 상위 3개)
+  const allPhrases = [
+    {q:'"너 너무 예민한 거 아니야?"',explain:'피해자의 감정 반응 자체를 문제로 삼아 항의의 정당성을 무너뜨리는 전형적 어법입니다.',score:subs.selfDoubt},
+    {q:'"그건 네 상상이야 / 그런 일 없었어"',explain:'피해자의 기억과 현실 인식을 직접 부정하여 자기 판단 자체를 의심하게 만듭니다.',score:subs.cogPar},
+    {q:'"다 너를 위해서 하는 말이야"',explain:'통제와 조작을 사랑으로 포장해 피해자가 저항감을 느끼지 못하게 합니다.',score:subs.submission},
+    {q:'"그냥 장난이었는데 왜 이렇게 심각하게 받아들여?"',explain:'상처를 사소화하여 피해자가 스스로를 \'과민하다\'고 느끼게 유도합니다.',score:subs.selfDoubt},
+    {q:'"내가 그렇게까지 했어? 기억이 잘못된 거잖아"',explain:'가해자가 기억을 직접 재정의하여 피해자의 인식 능력 자체를 무력화합니다.',score:subs.cogPar},
+  ];
+  const phrases = [...allPhrases].sort((a,b)=>b.score-a.score).slice(0,3);
+
+  // 뇌과학 섹션
+  const neuroMap = {
+    high:{title:'관계 중독과 세로토닌',desc:'극심한 스트레스 상황에서 뇌는 항상성을 유지하기 위해 세로토닌 분비를 반복 촉진합니다. 이 과정이 <strong>\'관계 중독\'</strong>으로 이어져, 명백히 해로운 관계임을 알면서도 떠나기 어렵게 만들 수 있습니다.<br><br>이것은 의지력의 문제가 아니라 <em>뇌의 생리적 반응</em>입니다. 당신이 약한 것이 아닙니다.'},
+    medium:{title:'만성 스트레스와 인지 기능 저하',desc:'지속적인 관계 스트레스는 코르티솔 분비를 높여 전전두엽 피질(판단·결정 담당) 기능을 저하시킵니다. 작은 결정도 어렵고 감정 조절이 평소보다 힘든 것은 이 때문일 수 있어요.<br><br><em>당신의 뇌는 지금 과부하 상태입니다.</em> 쉬어도 됩니다.'},
+    low:{title:'건강한 관계와 뇌',desc:'건강한 관계는 옥시토신과 세로토닌의 균형 있는 분비를 촉진합니다. 현재 비교적 낮은 스트레스 지표를 보이고 있어요.<br><br>지금의 건강한 경계 감각을 <em>잘 유지하고 계신 것</em> 같습니다. 앞으로도 자신의 감정에 귀 기울여 주세요.'},
+  };
+  const neuro = neuroMap[riskLevel];
+
+  // 회복 로드맵
+  const roadMaps = {
+    high:[
+      {title:'지금 이 순간의 안전 확인',desc:'위험한 상황이라면 즉시 안전한 공간으로 이동하는 것이 최우선입니다.'},
+      {title:'전문 상담 연결',desc:'정신건강 위기상담(1577-0199) 또는 가정폭력 피해 지원센터(1366)에 연락해 보세요.'},
+      {title:'경험 기록하기',desc:'날짜·장소·상황을 간단히 메모하세요. 감정 정리와 동시에 필요 시 증거가 됩니다.'},
+      {title:'신뢰할 수 있는 한 사람',desc:'모든 것을 말하지 않아도 됩니다. 곁에 있어줄 한 사람을 찾는 것부터 시작하세요.'},
+      {title:'법적 옵션 인지',desc:'강압적 통제는 법적으로 다뤄질 수 있습니다. 가정법률상담(132)으로 선택지를 알아보세요.'},
+    ],
+    medium:[
+      {title:'감정에 이름 붙이기',desc:'지금 느끼는 것이 불안인지, 슬픔인지, 분노인지 구분해보세요. 인식이 회복의 출발점입니다.'},
+      {title:'작은 경계 연습',desc:'"No"라고 말하는 연습을 작은 것부터 시작해 보세요. 당신의 경계는 소중합니다.'},
+      {title:'안전한 지지망 유지',desc:'가까운 친구·가족·상담사 등 신뢰할 수 있는 관계를 의도적으로 유지하세요.'},
+      {title:'자기 돌봄 루틴',desc:'수면, 식사, 가벼운 운동 등 기본적인 자기 돌봄이 회복력의 토대가 됩니다.'},
+    ],
+    low:[
+      {title:'감정 언어 키우기',desc:'내 감정과 필요를 분명하게 표현하는 연습이 건강한 관계를 더욱 단단하게 합니다.'},
+      {title:'관계 점검 습관',desc:'정기적으로 관계에서 나의 감정이 존중받고 있는지 스스로 돌아보세요.'},
+      {title:'알아차리는 힘',desc:'가스라이팅의 패턴을 알면 더 잘 알아차릴 수 있습니다. 지금 이 진단이 그 시작입니다.'},
+    ],
+  };
+  const road = roadMaps[riskLevel];
 
   document.getElementById('results').innerHTML = `
     <div class="res-header">
@@ -540,8 +753,42 @@ function renderResults(d) {
     <div class="r-card">
       <h3>🔄 관계 패턴 유형</h3>
       <div class="pattern-box">
-        <div class="p-badge">${pattern}</div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:9px">
+          <div class="p-badge" style="margin-bottom:0">${pattern}</div>
+          ${conflictLabel?`<span style="background:#FFF3EC;border:1px solid #F0DDD5;border-radius:20px;padding:4px 12px;font-size:.74rem;font-weight:700;color:#A05D3C">선택한 갈등: ${conflictLabel}</span>`:''}
+        </div>
         <div class="p-desc">${patDesc}</div>
+      </div>
+    </div>
+
+    <div class="r-card">
+      <h3>🔍 작동 중인 조작 기제</h3>
+      <div style="font-size:.78rem;color:var(--muted);margin-bottom:2px">응답 패턴에서 감지된 항목이 강조 표시됩니다. (사회학자 페이지 스위트의 연구 기반)</div>
+      <div class="mech-grid">
+        ${mechs.map(m=>`<div class="mech-item${m.active?' active':''}">
+          <div class="m-ico">${m.ico}</div>
+          <div class="m-title">${m.title}${m.active?' ✓':''}</div>
+          <div class="m-desc">${m.desc}</div>
+        </div>`).join('')}
+      </div>
+    </div>
+
+    <div class="r-card">
+      <h3>💬 이런 말, 들어보셨나요?</h3>
+      <div style="font-size:.78rem;color:var(--muted);margin-bottom:2px">응답 패턴과 연관 가능성이 높은 가스라이팅 전형 어법입니다. 익숙하게 느껴진다면, 당신의 감각이 옳습니다.</div>
+      <div class="phrase-list">
+        ${phrases.map(p=>`<div class="phrase-item">
+          <div class="phrase-q">${p.q}</div>
+          <div class="phrase-explain">${p.explain}</div>
+        </div>`).join('')}
+      </div>
+    </div>
+
+    <div class="r-card">
+      <h3>🧬 뇌과학으로 보는 지금 상태</h3>
+      <div class="neuro-box">
+        <div class="nb-title">🔬 ${neuro.title}</div>
+        <div class="nb-desc">${neuro.desc}</div>
       </div>
     </div>
 
@@ -551,9 +798,23 @@ function renderResults(d) {
     </div>
 
     <div class="r-card">
+      <h3>🛤️ 회복을 위한 다음 단계</h3>
+      <div class="road-steps">
+        ${road.map((s,i)=>`<div class="road-step">
+          <div class="road-num">${i+1}</div>
+          <div><div class="road-title">${s.title}</div><div class="road-desc">${s.desc}</div></div>
+        </div>`).join('')}
+      </div>
+    </div>
+
+    <div class="r-card">
       <h3>🌿 당신에게 드리는 말</h3>
       <div class="rec-box">${recText}</div>
       <div class="hotline">🌸 이 결과는 연구 및 자기 이해 목적으로만 활용해 주세요. 전문 심리 진단을 대체하지 않습니다.<br>지금 힘드시다면 <strong>정신건강 위기상담 전화 1577-0199</strong> (24시간, 무료) 로 연락해 보세요.</div>
+      <div class="ics-wrap">
+        <button class="ics-btn" onclick="downloadICS()">📅 4주 후 재진단 알림 캘린더에 추가</button>
+        <div class="ics-hint">파일을 열면 폰·PC 캘린더에 자동 추가돼요</div>
+      </div>
     </div>
 
     <!-- ── CTA ── -->
@@ -615,7 +876,12 @@ function renderResults(d) {
     ${!isLoggedIn ? `<button class="cta-main-btn" onclick="openAuth('signup')">무료로 시작하기 →</button><div class="cta-sub">가입 즉시 이용 가능 · 신용카드 불필요</div>` : ''}
   `;
 
-  setTimeout(()=>{document.querySelectorAll('.fill[data-pct]').forEach(el=>{el.style.width=el.dataset.pct+'%';});},150);
+  setTimeout(()=>{
+    document.querySelectorAll('.fill[data-pct]').forEach(el=>{el.style.width=el.dataset.pct+'%';});
+    observeReveal();
+    const numEl=document.querySelector('.r-num');
+    if(numEl) animCount(numEl,riskScore);
+  },150);
 }
 
 // ── AUTH FUNCTIONS ────────────────────────────────────
@@ -737,15 +1003,120 @@ function submitData(payload) {
 
 // ── RESTART ───────────────────────────────────────────
 function restart() {
-  glA=new Array(20).fill(null); lastResult=null; resultSaved=false;
+  glA=new Array(20).fill(null); conflict=null; lastResult=null; resultSaved=false;
   document.querySelectorAll('input[type=radio]').forEach(r=>r.checked=false);
   document.querySelectorAll('.q-card').forEach(c=>c.classList.remove('answered'));
   document.querySelectorAll('.choice-btn').forEach(b=>b.classList.remove('selected'));
+  document.querySelectorAll('#sec-2 .choice-btn').forEach(b=>b.classList.remove('selected'));
   goTo(0);
+}
+
+// ── SCROLL REVEAL ─────────────────────────────────────
+const revealObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}
+  });
+},{threshold:.1});
+
+function observeReveal(){
+  document.querySelectorAll('.r-card,.res-header,.feat-card,.cta-header').forEach((el,i)=>{
+    el.classList.add('reveal');
+    el.style.transitionDelay=(i*.07)+'s';
+    revealObs.observe(el);
+  });
+}
+
+// ── SCORE COUNTER ─────────────────────────────────────
+function animCount(el,target,dur=1200){
+  let s=null;
+  (function tick(ts){
+    if(!s)s=ts;
+    const p=Math.min((ts-s)/dur,1);
+    el.textContent=Math.round((1-Math.pow(1-p,3))*target);
+    if(p<1)requestAnimationFrame(tick);
+  })(performance.now());
+}
+
+// 헤더 파티클
+(function(){
+  const h=document.querySelector('.header');
+  const chars=['✦','✧','⋆','·','✺'];
+  for(let i=0;i<8;i++){
+    const s=document.createElement('span');
+    s.className='header-spark';
+    s.textContent=chars[i%chars.length];
+    const dur=3+Math.random()*3;
+    s.style.cssText=`left:${7+Math.random()*86}%;top:${10+Math.random()*75}%;font-size:${.5+Math.random()*.5}rem;color:rgba(255,255,255,${.4+Math.random()*.3});animation-duration:${dur}s;animation-delay:${Math.random()*dur}s`;
+    h.appendChild(s);
+  }
+})();
+
+// ── REMINDER ──────────────────────────────────────────
+function checkReminder() {
+  const last = localStorage.getItem('gl_lastTestDate');
+  if (!last) return;
+  const days = Math.floor((Date.now() - new Date(last)) / 86400000);
+  if (days >= 28) {
+    document.getElementById('rb-days').textContent = days;
+    document.getElementById('reminder-banner').style.display = 'block';
+  }
+}
+function dismissReminder() {
+  document.getElementById('reminder-banner').style.display = 'none';
+}
+function startReminder() {
+  dismissReminder();
+  goTo(0);
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+async function downloadICS() {
+  const remind = new Date(Date.now() + 28*24*60*60*1000);
+  const pad = n => String(n).padStart(2,'0');
+  const fmt = d => d.getFullYear()+pad(d.getMonth()+1)+pad(d.getDate())+'T'+pad(d.getHours())+pad(d.getMinutes())+'00';
+  const ics = [
+    'BEGIN:VCALENDAR','VERSION:2.0','CALSCALE:GREGORIAN',
+    'BEGIN:VEVENT',
+    'UID:gl-'+Date.now()+'@diagnosis',
+    'DTSTART:'+fmt(remind),
+    'DTEND:'+fmt(new Date(remind.getTime()+30*60*1000)),
+    'SUMMARY:관계 위험 패턴 재진단 알림',
+    'DESCRIPTION:4주 전 진단 결과를 다시 측정해 관계 변화를 확인해보세요.',
+    'BEGIN:VALARM','TRIGGER:-PT0M','ACTION:DISPLAY',
+    'DESCRIPTION:재진단 시간이에요','END:VALARM',
+    'END:VEVENT','END:VCALENDAR'
+  ].join('\r\n');
+
+  // 크롬 등 파일 저장 API 지원 시 (file:// 에서도 작동)
+  if (window.showSaveFilePicker) {
+    try {
+      const handle = await window.showSaveFilePicker({
+        suggestedName: '재진단_알림.ics',
+        types: [{description: 'iCalendar 파일', accept: {'text/calendar': ['.ics']}}]
+      });
+      const writable = await handle.createWritable();
+      await writable.write(ics);
+      await writable.close();
+      toast('캘린더 파일이 저장됐어요 📅');
+      return;
+    } catch(e) {
+      if (e.name === 'AbortError') return; // 취소
+    }
+  }
+
+  // 폴백: Firefox, Safari 등
+  const a = document.createElement('a');
+  a.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
+  a.download = '재진단_알림.ics';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  toast('캘린더 파일이 다운로드됐어요 📅');
 }
 
 // ── INIT ──────────────────────────────────────────────
 updateChip();
+checkReminder();
+
 </script>
 </body>
 </html>
